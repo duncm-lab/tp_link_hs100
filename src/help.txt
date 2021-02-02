@@ -1,0 +1,18 @@
+Provide IP address of device followed by one of the following:
+
+Available sub-commands:
+
+    info
+    on
+    off
+    ledoff
+    ledon
+    cloudinfo
+    wlanscan
+    time
+    schedule
+    countdown
+    antitheft
+    reboot
+    reset
+    energy

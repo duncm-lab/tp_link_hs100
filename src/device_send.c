@@ -14,7 +14,6 @@ char * create_message(char *raw, bool enc){
         for (int i = 0; raw[i] != '\0'; i++){
             unsigned int p = raw[i];
             msg[i] = p;
-            printf("%d\n", i);
         }
     }
 
@@ -61,6 +60,5 @@ int device_send(int sock, char *cmd, SA_IN dv, bool enc){
     printf("Data sent: %d\n", status);
 
 
-    printf("sssock %d\n", sock);
     return 0;
 }

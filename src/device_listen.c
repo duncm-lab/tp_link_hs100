@@ -16,11 +16,12 @@ void* listen_response(void* arg){
     size_t rsize = sizeof(char) * BUFFER;
     int response_size = read(r->sock, &response_msg, rsize);
     handle_error("read", response_size);
-    printf("Received: %d\n", response_size);
+    printf("Data received: %d\n", response_size);
 
     r->response = malloc(sizeof(char) * response_size);
     for (int i = OFFSET; response_msg[i] != '\0'; i++) {
         r->response[i-OFFSET] = response_msg[i];
     }
+    r->len = strlen(r->response);
     return NULL;
 }

@@ -20,3 +20,18 @@ char* encrypt(char *raw){
     }
     return msg;
 }
+
+void decrypt(char *msg, char *buf){
+    int key = KEY;
+
+    int msglen = strlen(msg);
+
+    for (int i = 0; i < msglen; i++) {
+        int p = msg[i];
+        int q = key ^ p;
+        key ^= p;
+        key = p;
+        buf[i] = q;
+        
+    }
+}

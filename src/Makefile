@@ -11,7 +11,7 @@ OBJECTS = $(LIB)/main.o \
 		  $(LIB)/device_listen.o
 
 
-main: $(OBJECTS)
+hs100: $(OBJECTS)
 	$(CC) $^ -g -pthread -o $(BIN)/$@
 
 server: $(LIB)/server.o $(LIB)/socket_functions.o

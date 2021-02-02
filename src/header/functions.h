@@ -3,7 +3,7 @@
 
 // encryption functions
 char* encrypt(char *raw);
-char decrypt(char *msg);
+void decrypt(char *msg, char *buf);
 
 
 // messaging functions

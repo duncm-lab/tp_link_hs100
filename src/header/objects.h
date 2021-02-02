@@ -15,6 +15,7 @@ typedef struct _message {
 // struct for pthread listen_response
 typedef struct _response {
     int sock;
+    int len;
     char *response;
 } response_t;
 
