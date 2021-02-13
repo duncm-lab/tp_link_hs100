@@ -3,39 +3,38 @@ CFLAGS = -g -c -Wall -O0 -pthread
 BIN = ../bin
 LIB = ../lib
 
-OBJECTS = $(LIB)/main.o \
-		  $(LIB)/socket_functions.o \
-		  $(LIB)/command.o \
-		  $(LIB)/encrypt.o \
-		  $(LIB)/device_send.o \
-		  $(LIB)/device_listen.o
+
+OBJFILES = socket_functions \
+		   command \
+		   encrypt \
+		   device_send \
+		   device_listen \
+		   main
+
+OBJECTS := $(addprefix $(LIB)/, $(addsuffix .o, $(OBJFILES)))
 
 
 hs100: $(OBJECTS)
 	$(CC) $^ -g -pthread -o $(BIN)/$@
+	cp commands $(BIN)
 
-server: $(LIB)/server.o $(LIB)/socket_functions.o
-	$(CC) $^ -g -o $(BIN)/$@
 
-$(LIB)/main.o: main.c
+$(LIB)/main.o: main.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(LIB)/socket_functions.o: socket_function.c
+$(LIB)/socket_functions.o: socket_function.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(LIB)/server.o: server.c
+$(LIB)/command.o: command.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(LIB)/command.o: command.c
+$(LIB)/encrypt.o: encrypt.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(LIB)/encrypt.o: encrypt.c
+$(LIB)/device_send.o: device_send.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(LIB)/device_send.o: device_send.c
-	$(CC) $(CFLAGS) $< -o $@
-
-$(LIB)/device_listen.o: device_listen.c
+$(LIB)/device_listen.o: device_listen.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:

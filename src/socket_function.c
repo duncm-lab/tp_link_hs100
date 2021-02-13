@@ -1,10 +1,9 @@
-#include "header/includes.h"
 #include "header/defs.h"
 
 int new_socket(void){
     // create and return a new socket
     int sock = socket(AF_INET, SOCK_STREAM, 0);
-    handle_error("socket", sock);
+    HANDLE_ERROR("socket", sock);
     return sock;
 }
 
@@ -17,6 +16,6 @@ struct sockaddr_in device(int port, char *ip){
     memset(dev.sin_zero, 0, sizeof(char) * 8);
 //    dev.sin_addr.s_addr = inet_addr(ip);
     int set_ip = inet_pton(AF_INET, ip, &(dev.sin_addr.s_addr));
-    handle_error("inet_pton", set_ip);
+    HANDLE_ERROR("inet_pton", set_ip);
     return dev;
 }

@@ -1,6 +1,4 @@
-#include "header/includes.h"
 #include "header/defs.h"
-#include "header/functions.h"
 
 char * create_message(char *raw, bool enc){
     // create a message to send and optionally encrypt
@@ -20,19 +18,18 @@ char * create_message(char *raw, bool enc){
     return msg;
 }
 
-int device_send(int sock, char *cmd, SA_IN dv, bool enc){
-    /* connect to and send a command to a remove device
-     * @param[sock] established socket
-     * @param[dv] socket struct for device
-     * @param[enc] use encryption or not
-     *
-     * @return[char*] response from device
+int device_send(int sock, char *cmd,  bool enc){
+    /* @brief           connect to and send a command to a remove device
+     * @param[sock]     established socket
+     * @param[dv]       socket struct for device
+     * @param[enc]      use encryption or not
+     * @param[char*]    response from device
      */
 
     int status;
 
     // create and encrypt command to be sent to device
-    char *command = select_command(cmd);
+    char *command = cmd;
     char *msg = create_message(command, enc);
     int msg_len = strlen(msg);
 
@@ -54,11 +51,11 @@ int device_send(int sock, char *cmd, SA_IN dv, bool enc){
     }
 
 
+
     // send data to device
     status = send(sock, msg_out, out_len, 0);
-    handle_error("send", status);
+    HANDLE_ERROR("send", status);
     printf("Data sent: %d\n", status);
-
 
     return 0;
 }

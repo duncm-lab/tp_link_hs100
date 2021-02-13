@@ -1,4 +1,12 @@
-Provide IP address of device followed by one of the following:
+Send commands to a TP-LINK HS100 smart plug.
+
+Invocation:
+    ./hs100 -d device:port -c command
+
+Short options:
+    -h      show help
+    -d      device ip and port (device:port)
+    -c      command
 
 Available sub-commands:
 

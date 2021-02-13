@@ -1,11 +1,9 @@
-#include "header/includes.h"
 #include "header/defs.h"
 
 char* encrypt(char *raw){
-    /* apply encryption function to string
-     *
-     * @param[raw] - unencrypted string
-     * @return[char*] - encrypted string
+    /* @brief           apply encryption to a message being sent to the plug
+     * @param[raw]      unencrypted string
+     * @param[char*]    encrypted string
      */
 
     int key = KEY;
@@ -21,10 +19,17 @@ char* encrypt(char *raw){
     return msg;
 }
 
-void decrypt(char *msg, char *buf){
+char * decrypt(char *msg){
+    /* @brief       Decrypt the message returned from the plug
+     * @param[*msg] Message returned from plug
+     * @param[*buf] location to write the decrypted string to
+     */
     int key = KEY;
 
     int msglen = strlen(msg);
+
+    char *buf = malloc(sizeof(char) * msglen);
+
 
     for (int i = 0; i < msglen; i++) {
         int p = msg[i];
@@ -32,6 +37,7 @@ void decrypt(char *msg, char *buf){
         key ^= p;
         key = p;
         buf[i] = q;
-        
     }
+    return buf;
+
 }
