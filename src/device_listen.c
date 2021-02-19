@@ -1,7 +1,10 @@
 #include "header/defs.h"
 
 void* listen_response(void* arg){
-    // listen for responses from device
+    /*  @brief listen for responses from device and write the data
+     *  and data length to response and len attributes of a response_t struct
+     *  @param[*arg]    void pointer to response_t struct
+     */
 
     response_t *r = (response_t*) arg;
     int *x = &r->sock;

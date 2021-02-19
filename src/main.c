@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
     char *command = NULL;
     int cmd_len;
 
-    while ((opt = getopt(argc, argv, "d:c:h:")) != -1){
+    while ((opt = getopt(argc, argv, "d:c:h")) != -1){
         switch (opt){
             case 'd': // device:port
                 host = strtok(optarg, PORT_SEP);

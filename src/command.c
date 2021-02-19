@@ -2,6 +2,9 @@
 
 
 char * read_cmd_file(void){
+    /* @brief read the contents of the "commands" file
+     * @param[cmdfile]  char array of "commands" file contents
+     */
     int status;
     FILE *fl = fopen("commands", "r");
     fseek(fl, 0, SEEK_END);
@@ -14,6 +17,10 @@ char * read_cmd_file(void){
 }
 
 char * get_command(char *cmd){
+    /*  Lookup and return the command in the char array of "commands" file
+     *  @param[*cmd]        Key to look for
+     *  @param[*command]    JSON command from file
+     */
     char *line = malloc(sizeof(char));
     char *k = strstr(read_cmd_file(), cmd);
     int idx = 0;
@@ -26,5 +33,4 @@ char * get_command(char *cmd){
     strtok(line, " ");
     char *command = strtok(NULL, " ");
     return command;
-
 }
