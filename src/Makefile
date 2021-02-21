@@ -16,7 +16,7 @@ OBJECTS := $(addprefix $(LIB)/, $(addsuffix .o, $(OBJFILES)))
 
 hs100: $(OBJECTS)
 	$(CC) $^ -g -pthread -o $(BIN)/$@
-	cp commands $(BIN)
+	cp commands help.txt $(BIN)
 
 
 $(LIB)/main.o: main.c $(HEADER)
