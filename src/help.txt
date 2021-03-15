@@ -24,3 +24,4 @@ Available sub-commands:
     reboot
     reset
     energy
+

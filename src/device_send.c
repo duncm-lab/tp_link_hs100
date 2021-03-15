@@ -7,7 +7,7 @@ char * create_message(char *raw, bool enc){
     memset(msg, '\0', len);
 
     if (enc == true){
-        msg = encrypt(raw);
+        msg = msg_encrypt(raw);
     } else {
         for (int i = 0; raw[i] != '\0'; i++){
             unsigned int p = raw[i];

@@ -1,6 +1,6 @@
 #include "header/defs.h"
 
-char* encrypt(char *raw){
+char* msg_encrypt(char *raw){
     /* @brief           apply encryption to a message being sent to the plug
      * @param[raw]      unencrypted string
      * @param[char*]    encrypted string
@@ -19,7 +19,7 @@ char* encrypt(char *raw){
     return msg;
 }
 
-char * decrypt(char *msg){
+char * msg_decrypt(char *msg){
     /* @brief       Decrypt the message returned from the plug
      * @param[*msg] Message returned from plug
      * @param[*buf] location to write the decrypted string to

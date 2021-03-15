@@ -12,6 +12,7 @@ void help(void){
     status = fread(&buf, 1, fsize-1, fl);
     HANDLE_ERROR("fread - help", status);
     printf("%s\n", buf);
+    exit(EXIT_SUCCESS);
 }
 
 int main(int argc, char *argv[]){
@@ -19,9 +20,9 @@ int main(int argc, char *argv[]){
      * -h help
      */
 
-    if (strcmp(argv[1], "-h") == 0){
+
+    if (argc == 1 || strcmp(argv[1], "-h") == 0){
         help();
-        exit(EXIT_SUCCESS);
     }
 
 
@@ -96,7 +97,7 @@ int main(int argc, char *argv[]){
     HANDLE_ERROR("pthread_join", status);
 
 
-    char *response = decrypt(r.response);
+    char *response = msg_decrypt(r.response);
     printf("%s\n", response);
 
 

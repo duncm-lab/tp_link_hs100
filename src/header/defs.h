@@ -4,6 +4,7 @@
  /* messages are prepended with 4 bytes for message size
   * information */
 
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -57,8 +58,8 @@ typedef struct _listener {
 } listener_t;
 
 // encryption functions
-char* encrypt(char *raw);
-char* decrypt(char *msg);
+char* msg_encrypt(char *raw);
+char* msg_decrypt(char *msg);
 
 
 // messaging functions
