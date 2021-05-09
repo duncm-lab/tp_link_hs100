@@ -21,14 +21,8 @@ int main(int argc, char *argv[]){
      */
 
 
-    if (argc == 1 || strcmp(argv[1], "-h") == 0){
+    if (argc < 3 || strcmp(argv[1], "-h") == 0){
         help();
-    }
-
-
-    if (argc < 3){
-        fprintf(stderr, "Missing arguments\n");
-        exit(EXIT_FAILURE);
     }
 
     int opt = -1;
