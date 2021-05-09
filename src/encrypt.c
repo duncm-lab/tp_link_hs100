@@ -1,5 +1,10 @@
 #include "header/defs.h"
 
+
+/*
+ * Code taken from https://github.com/softScheck/tplink-smartplug/blob/master/tplink_smartplug.py
+ */
+
 char* msg_encrypt(char *raw){
     /* @brief           apply encryption to a message being sent to the plug
      * @param[raw]      unencrypted string
